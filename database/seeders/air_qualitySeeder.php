@@ -23,23 +23,25 @@ class air_qualitySeeder extends Seeder
 
         while (($data = fgetcsv($csvFile, 1000, ',')) !== false) {
             $dataToSeed[] = [
-                'data_di_misurazione' => $data[0],
-                'id_station' => $data[1],
-                'denominazione' => $data[2],
-                'comune' => $data[3],
-                'provincia' => $data[4],
-                'latitudine' => $data[5],
-                'longitudine' => $data[6],
-                'tipologia_di_area' => $data[7],
-                'tipologia_stazione' => $data[8],
-                'interesse_rete' => $data[9],
-                'inquinante_misurato' => $data[10],
-                'valore_inquinante_misurato' => $data[11],
-                'limite' => $data[12],
-                'unita_di_misura' => $data[13],
-                'superamenti' => $data[14],
-                'indice_qualita' => $data[15],
-                'classe_qualità' => $data[16]
+                'id'=>$data[0],
+                'data_di_misurazione' => $data[1],
+                'id_station' => $data[2],
+                'denominazione' => $data[3],
+                'comune' => $data[4],
+                'provincia' => $data[5],
+                'latitudine' => $data[6],
+                'longitudine' => $data[7],
+                'tipologia_di_area' => $data[8],
+                'tipologia_stazione' => $data[9],
+                'rete'=>$data[10],
+                'interesse_rete' => $data[11],
+                'inquinante_misurato' => $data[12],
+                'valore_inquinante_misurato' => $data[13],
+                'limite' => $data[14],
+                'unita_di_misura' => $data[15],
+                'superamenti' => $data[16],
+                'indice_qualita' => $data[17],
+                'classe_qualità' => $data[18]
 
             ];
         }

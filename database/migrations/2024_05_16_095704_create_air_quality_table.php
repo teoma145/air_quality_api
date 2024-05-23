@@ -14,26 +14,25 @@ return new class extends Migration
     {
         Schema::create('air_quality', function (Blueprint $table) {
             $table->id();
-            $table->string('data_di_misurazione')->nullable();
-            $table->unsignedBigInteger('id_station')->nullable();
+            $table->date('data_di_misurazione')->nullable();
+            $table->string('id_station')->nullable();
             $table->string('denominazione');
             $table->string('comune');
             $table->string('provincia');
+            $table->double('longitudine');
             $table->double('latitudine')->nullable();
-            $table->double('longitudine')->nullable();
             $table->string('tipologia_di_area')->nullable();
             $table->string('tipologia_stazione')->nullable();
-            $table->enum('interesse_rete', ['pubblico', 'privato'])->default('pubblico');
+            $table->string('rete')->nullable();
+            $table->string('interesse_rete')->nullable();
             $table->string('inquinante_misurato')->nullable();
-            $table->double('valore_inquinante_misurato');
+            $table->float('valore_inquinante_misurato');
             $table->double('limite')->nullable();
             $table->string('unita_di_misura')->nullable();
             $table->unsignedBigInteger('superamenti')->nullable();
-            $table->unsignedBigInteger('indice_qualita')->nullable();
+            $table->integer('indice_qualita')->nullable();
             $table->string('classe_qualità')->nullable();
 
-
-            $table->timestamps();
         });
     }
 
