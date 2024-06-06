@@ -28,4 +28,5 @@ class AirQuality extends Model
         'indice_qualita',
         'classe_qualità',
     ];
+    public $timestamps = false;
 }
