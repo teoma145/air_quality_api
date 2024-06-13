@@ -57,8 +57,9 @@ class AirQualityController extends Controller
 
         return response()->json($airQualityRecords, 200);
     }
+
     public function filterByComuneAndClasseQualita($comune, $classe_qualita)
-    {   
+    {
         $airQualityRecords = AirQuality::where('comune', $comune)
             ->where('classe_qualità', $classe_qualita)
             ->get();
@@ -111,7 +112,7 @@ class AirQualityController extends Controller
         'unità_di_misura' => $request->input('unità_di_misura'),
         'superamenti' => $request->input('superamenti'),
         'indice_qualità' => $request->input('indice_qualità'),
-        
+
     ]);
 
     $airQualityRecord->save();
@@ -132,7 +133,7 @@ class AirQualityController extends Controller
     }
     public function update(Request $request, $id)
 {
-    
+
     $request->validate([
         'comune' => 'sometimes|required|string',
         'classe_qualità' => 'sometimes|required|string',
@@ -154,10 +155,10 @@ class AirQualityController extends Controller
         'indice_qualità' => 'sometimes|required|integer',
     ]);
 
-    
+
     $airQualityRecord = AirQuality::findOrFail($id);
 
-    
+
     $dataToUpdate = $request->only([
         'comune',
         'classe_qualità',
@@ -179,10 +180,10 @@ class AirQualityController extends Controller
         'indice_qualità'
     ]);
 
-    
+
     $airQualityRecord->update($dataToUpdate);
 
-    
+
     return response()->json(['message' => 'Record updated successfully.', 'data' => $airQualityRecord], 200);
 }
 }
