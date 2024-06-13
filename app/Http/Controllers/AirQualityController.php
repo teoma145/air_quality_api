@@ -130,8 +130,10 @@ class AirQualityController extends Controller
 
         return response()->json(['message' => 'Record deleted successfully.'], 200);
     }
+
+    
     public function update(Request $request, $id)
-{
+    {
     
     $request->validate([
         'comune' => 'sometimes|required|string',
